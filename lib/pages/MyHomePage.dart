@@ -1,5 +1,4 @@
 import 'package:app_ticketsbus/pages/AdicionarPassagens.dart';
-import 'package:app_ticketsbus/pages/Config.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -10,16 +9,9 @@ class MyHomePage extends StatelessWidget {
         title: Text("Tickets Bus"),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.settings),
-            tooltip: 'Configuração',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyConfig(),
-                ),
-              );
-            },
+            icon: Icon(Icons.list),
+            tooltip: 'Menu',
+            onPressed: () {},
           ),
         ],
       ),

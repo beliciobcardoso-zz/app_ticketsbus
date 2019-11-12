@@ -1,15 +1,14 @@
 import 'package:app_ticketsbus/models/MyTimeDate.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:app_ticketsbus/pages/Config.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter/material.dart';
 
 class AdicionarPassagens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var maskFormatter = new MaskTextInputFormatter(
-      mask: '0#,##',
-      filter: {
-        "#": RegExp(r'[0-9]'),
-      },
+    var controller = new MoneyMaskedTextController(
+      decimalSeparator: ',',
+      thousandSeparator: '.',
     );
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +21,14 @@ class AdicionarPassagens extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.settings),
             tooltip: 'Configuração',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyConfig(),
+                ),
+              );
+            },
           ),
         ],
       ),
@@ -55,7 +61,7 @@ class AdicionarPassagens extends StatelessWidget {
               ),
             ),
             TextFormField(
-              inputFormatters: [maskFormatter],
+              controller: controller,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: "Qual o valor da recargar?",
