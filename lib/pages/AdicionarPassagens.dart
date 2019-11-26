@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 class AdicionarPassagens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var controller = new MoneyMaskedTextController(
-      decimalSeparator: ',',
-      thousandSeparator: '.',
+    var quantpassagem = new MaskedTextController(
+      mask: '00',
+      text: '02',
     );
     return Scaffold(
       appBar: AppBar(
@@ -17,32 +17,18 @@ class AdicionarPassagens extends StatelessWidget {
           onPressed: () => Navigator.pop(context, false),
         ),
         title: Text("Tickets Bus"),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.settings),
-            tooltip: 'Configuração',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyConfig(),
-                ),
-              );
-            },
-          ),
-        ],
       ),
       body: Container(
         padding: EdgeInsets.only(
           top: 20,
-          left: 40,
-          right: 40,
+          left: 15,
+          right: 10,
         ),
-        color: Colors.white,
+        color: Colors.red[100],
         child: ListView(
           children: <Widget>[
             Text(
-              "Adicionar uma Recarga",
+              "Adicionar Passagem",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -61,14 +47,14 @@ class AdicionarPassagens extends StatelessWidget {
               ),
             ),
             TextFormField(
-              controller: controller,
+              controller: quantpassagem,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: "Qual o valor da recargar?",
+                labelText: "Quantas Passagens uso hoje?",
                 labelStyle: TextStyle(
-                  color: Colors.black38,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 20,
+                  backgroundColor: Colors.blue,
+                  color: Colors.black,
+                  fontSize: 25,
                 ),
               ),
               style: TextStyle(fontSize: 40),
