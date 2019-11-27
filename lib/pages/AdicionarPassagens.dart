@@ -1,5 +1,4 @@
 import 'package:app_ticketsbus/models/MyTimeDate.dart';
-import 'package:app_ticketsbus/pages/Config.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter/material.dart';
 
@@ -83,7 +82,8 @@ class AdicionarPassagens extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
+            //fim do inpunt "Quantas passagens uso hoje?"
           ],
         ),
       ),
