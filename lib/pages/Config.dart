@@ -22,95 +22,172 @@ class MyConfig extends StatelessWidget {
         title: Text("Tickets Bus"),
       ),
       body: Container(
-        padding: EdgeInsets.only(
-          top: 20,
-          left: 25,
-          right: 25,
-        ),
-        color: Colors.white,
+        color: Colors.grey[400],
         child: ListView(
           children: <Widget>[
-            Text(
-              "Configurar Passagem",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              "Data: $data",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-                fontSize: 18,
-              ),
-            ),
-            TextFormField(
-              controller: quantpassagem,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                labelText: "Quantas passagem por dia?",
-                labelStyle: TextStyle(
-                  color: Colors.black38,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20,
-                ),
-              ),
-              style: TextStyle(fontSize: 40),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            TextFormField(
-              controller: controller,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                labelText: "Qual o valor da Passagem?",
-                labelStyle: TextStyle(
-                  color: Colors.black38,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20,
-                ),
-              ),
-              style: TextStyle(fontSize: 40),
-            ),
-            SizedBox(
-              height: 15,
-            ),
+            //------ Titulo da Pagina ------//
             Container(
-              height: 60,
-              alignment: Alignment.centerLeft,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  stops: [0.3, 1],
-                  colors: [
-                    Color(0xff3f51b5),
-                    Color(0xff3f51b5),
-                  ],
-                ),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(10),
+                    padding: EdgeInsets.only(
+                      top: 10,
+                    ),
+                    child: Text(
+                      "Configurar Passagem",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+            //--- Container do texto ---//
+            Container(
+              padding: EdgeInsets.only(
+                left: 10,
+                right: 10,
+              ),
+              child: Text(
+                "Configure quantas passagens você pega por dia e qual o valor da passagens na sua cidade.",
+                textAlign: TextAlign.center,
+              ),
+            ),
+            //--- Container da data ----//
+            Container(
+              padding: EdgeInsets.only(left: 10, top: 10),
+              child: Text(
+                "Data: $data",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 18,
                 ),
               ),
-              child: SizedBox.expand(
-                child: FlatButton(
-                  child: Text(
-                    "Confirmar",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 25,
+            ),
+            //------ Container do input quantidade de passagens --------//
+            Container(
+              margin: EdgeInsets.only(top: 15),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    width: MediaQuery.of(context).size.width / 1.1,
+                    height: 70,
+                    padding: EdgeInsets.only(
+                      top: 1,
+                      bottom: 1,
+                      left: 20,
                     ),
-                    textAlign: TextAlign.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                      ),
+                      color: Colors.white70,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black,
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                    child: TextFormField(
+                      controller: quantpassagem,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        labelText: "Quantas passagem por dia?",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      style: TextStyle(fontSize: 25),
+                    ),
                   ),
-                  onPressed: () {},
-                ),
+                ],
+              ),
+            ),
+            //----- Container do input valor passagem ----------//
+            Container(
+              margin: EdgeInsets.only(top: 25),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    width: MediaQuery.of(context).size.width / 1.1,
+                    height: 70,
+                    padding: EdgeInsets.only(
+                      top: 1,
+                      bottom: 1,
+                      left: 20,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                      ),
+                      color: Colors.white70,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black,
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                    child: TextFormField(
+                      controller: controller,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        labelText: "Qual o valor da Passagem?",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      style: TextStyle(fontSize: 25),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            //------ Container do Botão Confirmar --------//
+            Container(
+              margin: EdgeInsets.only(top: 25, bottom: 15),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    width: MediaQuery.of(context).size.width / 1.1,
+                    height: 70,
+                    padding: EdgeInsets.only(
+                      top: 1,
+                      right: 5,
+                      bottom: 1,
+                      left: 1,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                      ),
+                      color: Colors.indigo,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black,
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                    child: SizedBox.expand(
+                      child: FlatButton(
+                        child: Text(
+                          "Confirmar",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 25,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ),
+                  )
+                ],
               ),
             ),
           ],
