@@ -95,7 +95,7 @@ class AdicionarPassagens extends StatelessWidget {
                         labelStyle: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 19,
                         ),
                       ),
                       style: TextStyle(fontSize: 25),
@@ -105,7 +105,6 @@ class AdicionarPassagens extends StatelessWidget {
               ),
             ),
             //fim do inpunt "Quantas passagens uso hoje?"
-<<<<<<< HEAD
             Container(
               //Container botão confirmar?"
               margin: EdgeInsets.only(top: 25),
@@ -149,8 +148,6 @@ class AdicionarPassagens extends StatelessWidget {
                 ],
               ),
             ),
-=======
->>>>>>> f0789748bb042a2addc09c15c24fd891bcbd3d0a
           ],
         ),
       ),
