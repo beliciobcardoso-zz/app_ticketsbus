@@ -91,6 +91,7 @@ class AdicionarPassagens extends StatelessWidget {
                       controller: quantpassagem,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
+                        border: InputBorder.none,
                         labelText: "Quantas Passagens uso Hoje?",
                         labelStyle: TextStyle(
                           color: Colors.black,

@@ -27,18 +27,18 @@ class MyConfig extends StatelessWidget {
           children: <Widget>[
             //------ Titulo da Pagina ------//
             Container(
-                    padding: EdgeInsets.only(
-                      top: 10,
-                    ),
-                    child: Text(
-                      "Configurar Passagem",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
+              padding: EdgeInsets.only(
+                top: 10,
+              ),
+              child: Text(
+                "Configurar Passagem",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
             //--- Container do texto ---//
             Container(
               padding: EdgeInsets.only(
@@ -91,6 +91,7 @@ class MyConfig extends StatelessWidget {
                       controller: quantpassagem,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
+                        border: InputBorder.none,
                         labelText: "Quantas passagem por dia?",
                         labelStyle: TextStyle(
                           color: Colors.black,
@@ -133,6 +134,7 @@ class MyConfig extends StatelessWidget {
                       controller: controller,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
+                        border: InputBorder.none,
                         labelText: "Qual o valor da Passagem?",
                         labelStyle: TextStyle(
                           color: Colors.black,

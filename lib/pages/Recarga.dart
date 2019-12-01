@@ -106,6 +106,7 @@ class Recarga extends StatelessWidget {
                       controller: controller,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
+                        border: InputBorder.none,
                         labelText: "Qual o valor da recargar?",
                         labelStyle: TextStyle(
                           color: Colors.black,
