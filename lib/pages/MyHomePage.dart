@@ -24,6 +24,9 @@ class MyHomePage extends StatelessWidget {
           ),
         ],
       ),
+      body: Container(
+        color: Colors.grey[400],
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         tooltip: 'Adicionar passagens',
