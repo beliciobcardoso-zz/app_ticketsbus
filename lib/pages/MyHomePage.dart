@@ -11,7 +11,7 @@ class MyHomePage extends StatelessWidget {
         title: Text("Tickets Bus"),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.list),
+            icon: Icon(Icons.more_vert),
             tooltip: 'Menu',
             onPressed: () {
               Navigator.push(
