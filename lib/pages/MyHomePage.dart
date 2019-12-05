@@ -1,6 +1,6 @@
-import 'package:app_ticketsbus/pages/AdicionarPassagens.dart';
 import 'package:flutter/material.dart';
-import 'Recarga.dart';
+import 'package:app_ticketsbus/models/MenuPopup.dart';
+import 'package:app_ticketsbus/pages/AdicionarPassagens.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -9,18 +9,17 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Tickets Bus"),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.more_vert),
-            tooltip: 'Menu',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Recarga(),
-                ),
-              );
+          PopupMenuButton<String>(
+            onSelected: choiceAction,
+            itemBuilder: (BuildContext context) {
+              return MenuPopup.choices.map((String choice) {
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: Text(choice),
+                );
+              }).toList();
             },
-          ),
+          )
         ],
       ),
       body: Container(
@@ -39,5 +38,16 @@ class MyHomePage extends StatelessWidget {
         },
       ),
     );
+  }
+
+  void choiceAction(String choice) {
+    if (choice == MenuPopup.Recarga) {
+      print('Settings');
+      print('Settings');
+    } else if (choice == MenuPopup.Config) {
+      print('Subscribe');
+    } else if (choice == MenuPopup.Sobre) {
+      print('SignOut');
+    }
   }
 }
