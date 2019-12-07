@@ -1,6 +1,10 @@
+import 'package:app_ticketsbus/pages/Config.dart';
 import 'package:flutter/material.dart';
 import 'package:app_ticketsbus/models/MenuPopup.dart';
 import 'package:app_ticketsbus/pages/AdicionarPassagens.dart';
+import 'package:app_ticketsbus/pages/Recarga.dart';
+
+import 'historico.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -25,6 +29,82 @@ class MyHomePage extends StatelessWidget {
       body: Container(
         color: Colors.grey[400],
       ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: <Widget>[
+            Container(
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.settings),
+                      tooltip: "Configuração",
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyConfig(),
+                          ),
+                        );
+                      },
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              child: Text(
+                "Configuração",
+              ),
+            ),
+            Container(
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.refresh),
+                      tooltip: "Recarga",
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Recarga(),
+                          ),
+                        );
+                      },
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              child: Text(
+                "Recarga",
+              ),
+            ),
+            Container(
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.history),
+                      tooltip: "Historico",
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HistoricoRecarga(),
+                          ),
+                        );
+                      },
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         tooltip: 'Adicionar passagens',
@@ -40,14 +120,16 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
+  void pageRecarga() {
+    print('Recargassssssssssss');
+  }
+
   void choiceAction(String choice) {
     if (choice == MenuPopup.Recarga) {
-      print('Settings');
-      print('Settings');
     } else if (choice == MenuPopup.Config) {
-      print('Subscribe');
+      print('Configuração');
     } else if (choice == MenuPopup.Sobre) {
-      print('SignOut');
+      print('Sobre');
     }
   }
 }
