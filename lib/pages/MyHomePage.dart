@@ -109,7 +109,7 @@ class MyHomePage extends StatelessWidget {
         child: Icon(Icons.add),
         tooltip: 'Adicionar passagens',
         onPressed: () {
-         Navigator.push(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => AdicionarPassagens(),
@@ -122,7 +122,7 @@ class MyHomePage extends StatelessWidget {
 
   void choiceAction(String choice) {
     if (choice == MenuPopup.Recarga) {
-     print("object")
+      print("object");
     } else if (choice == MenuPopup.Config) {
       print('Configuração');
     } else if (choice == MenuPopup.Sobre) {
