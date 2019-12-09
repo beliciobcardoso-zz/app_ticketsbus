@@ -1,10 +1,10 @@
 import 'package:app_ticketsbus/pages/Config.dart';
+import 'package:app_ticketsbus/pages/MyMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:app_ticketsbus/models/MenuPopup.dart';
 import 'package:app_ticketsbus/pages/AdicionarPassagens.dart';
 import 'package:app_ticketsbus/pages/Recarga.dart';
-
-import 'historico.dart';
+import 'package:app_ticketsbus/pages/historico.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -12,7 +12,20 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Tickets Bus"),
-        actions: <Widget>[],
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.more_vert),
+            tooltip: "Menu",
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyMenu(),
+                ),
+              );
+            },
+          )
+        ],
       ),
       body: Container(
         color: Colors.grey[400],
