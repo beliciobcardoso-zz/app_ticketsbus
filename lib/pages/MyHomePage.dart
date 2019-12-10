@@ -37,6 +37,7 @@ class MyHomePage extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   Container(
+                    margin: EdgeInsets.only(left: 50),
                     child: IconButton(
                       icon: Icon(Icons.settings),
                       tooltip: "Configuração",
@@ -51,11 +52,6 @@ class MyHomePage extends StatelessWidget {
                     ),
                   )
                 ],
-              ),
-            ),
-            SizedBox(
-              child: Text(
-                "Configuração",
               ),
             ),
             Container(
@@ -76,11 +72,6 @@ class MyHomePage extends StatelessWidget {
                     ),
                   )
                 ],
-              ),
-            ),
-            SizedBox(
-              child: Text(
-                "Recarga",
               ),
             ),
             Container(
@@ -119,15 +110,5 @@ class MyHomePage extends StatelessWidget {
         },
       ),
     );
-  }
-
-  void choiceAction(String choice) {
-    if (choice == MenuPopup.Recarga) {
-      print("object");
-    } else if (choice == MenuPopup.Config) {
-      print('Configuração');
-    } else if (choice == MenuPopup.Sobre) {
-      print('Sobre');
-    }
   }
 }
