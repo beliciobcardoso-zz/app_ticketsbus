@@ -1,7 +1,6 @@
 import 'package:app_ticketsbus/pages/Config.dart';
 import 'package:app_ticketsbus/pages/MyMenu.dart';
 import 'package:flutter/material.dart';
-import 'package:app_ticketsbus/models/MenuPopup.dart';
 import 'package:app_ticketsbus/pages/AdicionarPassagens.dart';
 import 'package:app_ticketsbus/pages/Recarga.dart';
 import 'package:app_ticketsbus/pages/historico.dart';
