@@ -1,9 +1,9 @@
-import 'package:app_ticketsbus/pages/Config.dart';
-import 'package:app_ticketsbus/pages/MyMenu.dart';
 import 'package:flutter/material.dart';
-import 'package:app_ticketsbus/pages/AdicionarPassagens.dart';
-import 'package:app_ticketsbus/pages/Recarga.dart';
-import 'package:app_ticketsbus/pages/historico.dart';
+import 'MyMenu.dart';
+import 'Config.dart';
+import 'AdicionarPassagens.dart';
+import 'Recarga.dart';
+import 'PageHistorico.dart';
 
 class MyHomePage extends StatelessWidget {
   @override

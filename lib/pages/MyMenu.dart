@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'Recarga.dart';
 import 'Config.dart';
 import 'Sobre.dart';
-import 'historico.dart';
+import 'PageHistorico.dart';
 
 class MyMenu extends StatelessWidget {
   @override
