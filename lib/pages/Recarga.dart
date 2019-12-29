@@ -34,7 +34,7 @@ class Recarga extends StatelessWidget {
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
-        color: Colors.grey[400],
+        //color: Colors.grey[400],
         child: Column(
           children: <Widget>[
             Container(

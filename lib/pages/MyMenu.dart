@@ -12,7 +12,7 @@ class MyMenu extends StatelessWidget {
         title: Text("Menu"),
       ),
       body: Container(
-        color: Colors.grey[400],
+        //color: Colors.grey[400],
         child: Column(
           children: <Widget>[
             Container(

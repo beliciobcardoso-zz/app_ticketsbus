@@ -1,11 +1,27 @@
+import 'package:sqflite/sqflite.dart';
+
+/* CREATE TABLE Recarga_Passagem (
+    idRecargaPassagem    INTEGER PRIMARY KEY AUTOINCREMENT
+                                   NOT NULL,
+    valor_recarga_passagem STRING  NOT NULL,
+    recarga_data           DATE    NOT NULL
+); */
+
+final String tableRecargaPassagem = "tableRecargaPassagem";
+final String idRecargaPassagem = "idRecargaPassagem";
+final String valorRecargaPassagem = "valorRecargaPassagem";
+final String recargaData = "recargaData";
+
+class RecargaModels {}
+
 class Recarga {
   int id;
-  String data;
   double valor;
+  String data;
 
   Recarga({this.id, this.data, this.valor});
 
-  Recarga.fromJson(Map<String, dynamic> json) {
+  Recarga.fromMap(Map<String, dynamic> json) {
     id = json['id'];
     data = json['data'];
     valor = json['valor'];

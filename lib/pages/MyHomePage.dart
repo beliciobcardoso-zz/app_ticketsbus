@@ -5,7 +5,12 @@ import 'AdicionarPassagens.dart';
 import 'Recarga.dart';
 import 'PageHistorico.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,8 +32,8 @@ class MyHomePage extends StatelessWidget {
         ],
       ),
       body: Container(
-        color: Colors.grey[400],
-      ),
+          //color: Colors.grey[400],
+          ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           children: <Widget>[

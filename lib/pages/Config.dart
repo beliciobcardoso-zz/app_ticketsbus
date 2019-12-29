@@ -22,7 +22,7 @@ class MyConfig extends StatelessWidget {
         title: Text("Tickets Bus"),
       ),
       body: Container(
-        color: Colors.grey[400],
+        //color: Colors.grey[400],
         child: ListView(
           children: <Widget>[
             //------ Titulo da Pagina ------//
