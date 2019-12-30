@@ -1,11 +1,11 @@
-import 'package:path/path.dart';
+import 'package:app_ticketsbus/models/DataBaseModel.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';
 
-final String tableAdicionarPassagens = "tableAdicionarPassagens";
+final String tableAdicionarPassagens = "AdicionarPassagens";
 final String idAdicionarPassagens = "idAdicionarPassagens";
 final String quantidadePassagens = "quantidadePassagens";
-final String adicionarData = "adicionarData";
+final String dataPassagens = "dataPassagens";
 
 class AdicionarPassagemModels {
   static final AdicionarPassagemModels _instance =
@@ -13,27 +13,17 @@ class AdicionarPassagemModels {
   factory AdicionarPassagemModels() => _instance;
   AdicionarPassagemModels.internal();
 
+  DataBaseModel _dataBaseModel = DataBaseModel();
+
   Database _database;
 
   Future<Database> get database async {
     if (_database != null) {
       return _database;
     } else {
-      _database = await initDatabase();
+      _database = await _dataBaseModel.initDatabase();
       return _database;
     }
-  }
-
-  Future<Database> initDatabase() async {
-    final databasesPath = await getDatabasesPath();
-    final path = join(databasesPath, "BD_ticketsbus.db");
-    return await openDatabase(path, version: 1,
-        onCreate: (Database database, int newerVersion) async {
-      await database.execute("CREATE TABLE $tableAdicionarPassagens(" +
-          "$idAdicionarPassagens INTEGER PRIMARY KEY AUTOINCREMENT, " +
-          "$quantidadePassagens TEXT NOT NULL," +
-          "$adicionarData DATA NOT NULL)");
-    });
   }
 
   Future<AdicionarPassagens> saveAdicionarPassagens(
@@ -53,7 +43,7 @@ class AdicionarPassagemModels {
   Future<AdicionarPassagens> getAdicionarPassagens(int id) async {
     Database dbConect = await database;
     List<Map> maps = await dbConect.query(tableAdicionarPassagens,
-        columns: [idAdicionarPassagens, quantidadePassagens, adicionarData],
+        columns: [idAdicionarPassagens, quantidadePassagens, dataPassagens],
         where: "$idAdicionarPassagens = ?",
         whereArgs: [id]);
     if (maps.length > 0) {
@@ -95,19 +85,21 @@ class AdicionarPassagemModels {
 
 class AdicionarPassagens {
   int id;
-  String quantidade;
+  int quantidade;
   String data;
+
+  AdicionarPassagens();
 
   AdicionarPassagens.fromMap(Map map) {
     id = map[idAdicionarPassagens];
     quantidade = map[quantidadePassagens];
-    data = map[adicionarData];
+    data = map[dataPassagens];
   }
 
   Map toMap() {
     Map<String, dynamic> map = {
       quantidadePassagens: quantidade,
-      adicionarData: data
+      dataPassagens: data
     };
     if (id != null) {
       map[idAdicionarPassagens] = id;
@@ -117,6 +109,6 @@ class AdicionarPassagens {
 
   @override
   String toString() {
-    return "Adicionar Passagens(id: $id, quantidade: $quantidade, data: $data)";
+    return "Adicionar Passagens $tableAdicionarPassagens (id: $id, quantidade: $quantidade, data: $data)";
   }
 }

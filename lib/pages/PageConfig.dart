@@ -1,14 +1,17 @@
 import 'package:app_ticketsbus/models/MyTimeDate.dart';
-import 'package:app_ticketsbus/pages/Config.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 
-class Recarga extends StatelessWidget {
+class PageConfig extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = new MoneyMaskedTextController(
       decimalSeparator: ',',
       thousandSeparator: '.',
+    );
+    var quantpassagem = new MaskedTextController(
+      mask: '00',
+      text: '02',
     );
     return Scaffold(
       appBar: AppBar(
@@ -17,68 +20,51 @@ class Recarga extends StatelessWidget {
           onPressed: () => Navigator.pop(context, false),
         ),
         title: Text("Tickets Bus"),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.settings),
-            tooltip: 'Configuração',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyConfig(),
-                ),
-              );
-            },
-          ),
-        ],
       ),
       body: Container(
-        width: MediaQuery.of(context).size.width,
         //color: Colors.grey[400],
-        child: Column(
+        child: ListView(
           children: <Widget>[
+            //------ Titulo da Pagina ------//
             Container(
-              margin: EdgeInsets.only(top: 10),
-              height: 30,
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    alignment: AlignmentDirectional.center,
-                    width: MediaQuery.of(context).size.width / 1.1,
-                    child: Text(
-                      "Adicionar uma Recarga",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
+              padding: EdgeInsets.only(
+                top: 10,
+              ),
+              child: Text(
+                "Configurar Passagem",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
               ),
             ),
+            //--- Container do texto ---//
             Container(
-              margin: EdgeInsets.only(top: 5),
-              height: 30,
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    alignment: AlignmentDirectional.centerStart,
-                    width: MediaQuery.of(context).size.width / 1.1,
-                    child: Text(
-                      "Data: $data ",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
+              padding: EdgeInsets.only(
+                left: 10,
+                right: 10,
+              ),
+              child: Text(
+                "Configure quantas passagens você pega por dia e qual o valor da passagens na sua cidade.",
+                textAlign: TextAlign.center,
               ),
             ),
-
+            //--- Container da data ----//
             Container(
-              //Inicio do inpunt "Quantas passagens uso hoje?"
-              margin: EdgeInsets.only(top: 10),
+              padding: EdgeInsets.only(left: 10, top: 10),
+              child: Text(
+                "Data: $data",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+            //------ Container do input quantidade de passagens --------//
+            Container(
+              margin: EdgeInsets.only(top: 15),
               child: Column(
                 children: <Widget>[
                   Container(
@@ -86,7 +72,49 @@ class Recarga extends StatelessWidget {
                     height: 70,
                     padding: EdgeInsets.only(
                       top: 1,
-                      right: 5,
+                      bottom: 1,
+                      left: 20,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                      ),
+                      color: Colors.white70,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black,
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                    child: TextFormField(
+                      controller: quantpassagem,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        labelText: "Quantas passagem por dia?",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      style: TextStyle(fontSize: 25),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            //----- Container do input valor passagem ----------//
+            Container(
+              margin: EdgeInsets.only(top: 25),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    width: MediaQuery.of(context).size.width / 1.1,
+                    height: 70,
+                    padding: EdgeInsets.only(
+                      top: 1,
                       bottom: 1,
                       left: 20,
                     ),
@@ -107,32 +135,32 @@ class Recarga extends StatelessWidget {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        labelText: "Qual o valor da recargar?",
+                        labelText: "Qual o valor da Passagem?",
                         labelStyle: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 19,
+                          fontSize: 18,
                         ),
                       ),
                       style: TextStyle(fontSize: 25),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-            //fim do inpunt "Quantas passagens uso hoje?"
+            //------ Container do Botão Confirmar --------//
             Container(
-              //Container botão confirmar?"
-              margin: EdgeInsets.only(top: 25),
+              margin: EdgeInsets.only(top: 25, bottom: 15),
               child: Column(
                 children: <Widget>[
                   Container(
-                    alignment: AlignmentDirectional.center,
                     width: MediaQuery.of(context).size.width / 1.1,
                     height: 70,
                     padding: EdgeInsets.only(
                       top: 1,
+                      right: 5,
                       bottom: 1,
+                      left: 1,
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
@@ -160,7 +188,7 @@ class Recarga extends StatelessWidget {
                         onPressed: () {},
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
             ),

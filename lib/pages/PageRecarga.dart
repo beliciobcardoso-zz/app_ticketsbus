@@ -1,13 +1,14 @@
 import 'package:app_ticketsbus/models/MyTimeDate.dart';
+import 'package:app_ticketsbus/pages/PageConfig.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter/material.dart';
 
-class AdicionarPassagens extends StatelessWidget {
+class PageRecarga extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var quantpassagem = new MaskedTextController(
-      mask: '00',
-      text: '02',
+    var controller = new MoneyMaskedTextController(
+      decimalSeparator: ',',
+      thousandSeparator: '.',
     );
     return Scaffold(
       appBar: AppBar(
@@ -16,9 +17,24 @@ class AdicionarPassagens extends StatelessWidget {
           onPressed: () => Navigator.pop(context, false),
         ),
         title: Text("Tickets Bus"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.settings),
+            tooltip: 'Configuração',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PageConfig(),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
+        //color: Colors.grey[400],
         child: Column(
           children: <Widget>[
             Container(
@@ -30,7 +46,7 @@ class AdicionarPassagens extends StatelessWidget {
                     alignment: AlignmentDirectional.center,
                     width: MediaQuery.of(context).size.width / 1.1,
                     child: Text(
-                      "Adicionar Passagens",
+                      "Adicionar uma Recarga",
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -87,11 +103,11 @@ class AdicionarPassagens extends StatelessWidget {
                       ],
                     ),
                     child: TextFormField(
-                      controller: quantpassagem,
+                      controller: controller,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        labelText: "Quantas Passagens uso Hoje?",
+                        labelText: "Qual o valor da recargar?",
                         labelStyle: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,

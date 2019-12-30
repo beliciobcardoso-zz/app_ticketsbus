@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'Recarga.dart';
-import 'Config.dart';
-import 'Sobre.dart';
+import 'PageRecarga.dart';
+import 'PageConfig.dart';
+import 'PageSobre.dart';
 import 'PageHistorico.dart';
 
 class MyMenu extends StatelessWidget {
@@ -58,7 +58,7 @@ class MyMenu extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => Recarga(),
+                                    builder: (context) => PageRecarga(),
                                   ),
                                 );
                               },
@@ -107,7 +107,7 @@ class MyMenu extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => MyConfig(),
+                                    builder: (context) => PageConfig(),
                                   ),
                                 );
                               },
@@ -211,7 +211,7 @@ class MyMenu extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => Sobre(),
+                                    builder: (context) => PageSobre(),
                                   ),
                                 );
                               },

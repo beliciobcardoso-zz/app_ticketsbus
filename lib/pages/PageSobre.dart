@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Sobre extends StatelessWidget {
+class PageSobre extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
