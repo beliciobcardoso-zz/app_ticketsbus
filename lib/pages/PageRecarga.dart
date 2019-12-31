@@ -1,9 +1,51 @@
+import 'package:app_ticketsbus/models/DataBaseModel.dart';
 import 'package:app_ticketsbus/models/MyTimeDate.dart';
+import 'package:app_ticketsbus/models/RecargaModels.dart';
 import 'package:app_ticketsbus/pages/PageConfig.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter/material.dart';
 
-class PageRecarga extends StatelessWidget {
+class PageRecarga extends StatefulWidget {
+  @override
+  _PageRecargaState createState() => _PageRecargaState();
+}
+
+class _PageRecargaState extends State<PageRecarga> {
+  RecargaModels recargas = RecargaModels();
+
+  DataBaseModel databasemodel = DataBaseModel();
+
+  List<Recarga> recarga = List();
+  double valorRecaraga = 51.85;
+  @override
+  void initState() {
+    super.initState();
+
+    /*  AdicionarPassagens add = AdicionarPassagens();
+    add.quantidade = 3;
+    add.data = "27/12/2019";
+    addpassagem.saveAdicionarPassagens(add); */
+
+    /* addpassagem.getAllAdicionarPassagens().then((list) {
+      print(list);
+    }); */
+
+    /* Recarga r = Recarga();
+    r.dinheiro = 45.85;
+    r.data = "01/12/2019";
+    recargas.saveRecarga(r); */
+
+    recargas.getAllRecarga().then((list) {
+      print(list);
+    });
+
+    /* addpassagem.getAllAdicionarPassagens().then((list) {
+      setState(() {
+        passagens = list;
+      });
+    }); */
+  }
+
   @override
   Widget build(BuildContext context) {
     var controller = new MoneyMaskedTextController(
@@ -16,7 +58,7 @@ class PageRecarga extends StatelessWidget {
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context, false),
         ),
-        title: Text("Tickets Bus"),
+        title: Text("Recarga"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.settings),
@@ -34,7 +76,6 @@ class PageRecarga extends StatelessWidget {
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
-        //color: Colors.grey[400],
         child: Column(
           children: <Widget>[
             Container(
@@ -164,9 +205,58 @@ class PageRecarga extends StatelessWidget {
                 ],
               ),
             ),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                "Total de Recarga R\$ " + valorRecaraga.toString(),
+                style: TextStyle(fontSize: 20.0),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
+
+/* ListView.builder(
+                    padding: EdgeInsets.all(0.0),
+                    itemCount: recarga.length,
+                    itemBuilder: (context, index) {
+                      return _recargaCard(context, index);
+                    },
+                  ), */
+  /*  Widget _recargaCard(BuildContext context, int index) {
+    return GestureDetector(
+      child: Card(
+        color: Colors.grey[400],
+        child: Padding(
+          padding: EdgeInsets.all(0.0),
+          child: Row(
+            children: <Widget>[
+              Container(
+                width: 60.0,
+                height: 60.0,
+                child: Icon(
+                  Icons.check_circle_outline,
+                  color: Colors.blue,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Usado: " ?? "",
+                      style: TextStyle(fontSize: 20.0),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  } */
 }

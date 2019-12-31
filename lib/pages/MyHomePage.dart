@@ -8,7 +8,6 @@ import 'PageConfig.dart';
 import 'package:app_ticketsbus/pages/PageAdicionarPassagens.dart';
 import 'PageRecarga.dart';
 import 'PageHistorico.dart';
-import 'package:app_ticketsbus/models/MyTimeDate.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -17,44 +16,39 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   AdicionarPassagemModels addpassagem = AdicionarPassagemModels();
-  RecargaModels recarga = RecargaModels();
+  RecargaModels recargas = RecargaModels();
   ConfigModels config = ConfigModels();
   DataBaseModel databasemodel = DataBaseModel();
+
+  List<AdicionarPassagens> passagens = List();
 
   @override
   void initState() {
     super.initState();
 
-    print(data);
-
-    /* AdicionarPassagens add = AdicionarPassagens();
-    add.quantidade = 4;
-    add.data = "24/12/2019";
+    /*  AdicionarPassagens add = AdicionarPassagens();
+    add.quantidade = 3;
+    add.data = "27/12/2019";
     addpassagem.saveAdicionarPassagens(add); */
 
-    /* addpassagem.getAllAdicionarPassagens().then((listPassagem) {
-      print(listPassagem);
+    /* addpassagem.getAllAdicionarPassagens().then((list) {
+      print(list);
     }); */
 
     /* Recarga r = Recarga();
-    r.dinheiro = 11.85;
-    r.data = data;
-    recarga.saveRecarga(r); */
+    r.dinheiro = 45.85;
+    r.data = "01/12/2019";
+    recargas.saveRecarga(r); */
 
-    /* recarga.getAllRecarga().then((list) {
+    recargas.getAllRecarga().then((list) {
       print(list);
-    }); */
+    });
 
-    /* Config c = Config();
-    c.quantas = 2;
-    c.dinheiro = 4.2;
-    config.saveConfig(c); */
-
-    /* config.getAllConfig().then((list) {
-      print(list);
-    }); */
-
-    print(databasemodel.database);
+    addpassagem.getAllAdicionarPassagens().then((list) {
+      setState(() {
+        passagens = list;
+      });
+    });
   }
 
   @override
@@ -77,9 +71,13 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-      body: Container(
-          //color: Colors.grey[400],
-          ),
+      body: ListView.builder(
+        padding: EdgeInsets.all(10.0),
+        itemCount: passagens.length,
+        itemBuilder: (context, index) {
+          return _passagensCard(context, index);
+        },
+      ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           children: <Widget>[
@@ -158,6 +156,52 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           );
         },
+      ),
+    );
+  }
+
+  Widget _passagensCard(BuildContext context, int index) {
+    return GestureDetector(
+      child: Card(
+        color: Colors.grey[400],
+        child: Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Row(
+            children: <Widget>[
+              Container(
+                width: 60.0,
+                height: 60.0,
+                child: Icon(
+                  Icons.check_circle_outline,
+                  color: Colors.blue,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Usado: " +
+                              passagens[index].quantidade.toString() +
+                              " Passagens" ??
+                          "",
+                      style: TextStyle(fontSize: 20.0),
+                    ),
+                    Text(
+                      "Resta R\$ X Passagens" ?? "",
+                      style: TextStyle(fontSize: 18.0),
+                    ),
+                    Text(
+                      passagens[index].data ?? "",
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

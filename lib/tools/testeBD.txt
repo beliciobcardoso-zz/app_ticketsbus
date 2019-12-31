@@ -1,0 +1,35 @@
+@override
+  void initState() {
+    super.initState();
+
+    print(data);
+
+    /* AdicionarPassagens add = AdicionarPassagens();
+    add.quantidade = 4;
+    add.data = "24/12/2019";
+    addpassagem.saveAdicionarPassagens(add); */
+
+    /* addpassagem.getAllAdicionarPassagens().then((listPassagem) {
+      print(listPassagem);
+    }); */
+
+    /* Recarga r = Recarga();
+    r.dinheiro = 11.85;
+    r.data = data;
+    recarga.saveRecarga(r); */
+
+    /* recarga.getAllRecarga().then((list) {
+      print(list);
+    }); */
+
+    /* Config c = Config();
+    c.quantas = 2;
+    c.dinheiro = 4.2;
+    config.saveConfig(c); */
+
+    /* config.getAllConfig().then((list) {
+      print(list);
+    }); */
+
+    print(databasemodel.database);
+  }
