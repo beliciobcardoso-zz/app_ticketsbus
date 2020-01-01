@@ -19,6 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   RecargaModels recargas = RecargaModels();
   ConfigModels config = ConfigModels();
   DataBaseModel databasemodel = DataBaseModel();
+  Recarga recarga = Recarga();
 
   List<AdicionarPassagens> passagens = List();
 
@@ -43,6 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
     recargas.getAllRecarga().then((list) {
       print(list);
     });
+
+    recarga.calcular();
 
     addpassagem.getAllAdicionarPassagens().then((list) {
       setState(() {

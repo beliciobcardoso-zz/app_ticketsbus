@@ -82,6 +82,7 @@ class Recarga {
   int id;
   double dinheiro;
   String data;
+  double totalRecarga = 10;
 
   Recarga();
 
@@ -102,5 +103,9 @@ class Recarga {
   @override
   String toString() {
     return "Recarga Realizadas $tableRecarga (id: $id, dinheiro: $dinheiro, data: $data)";
+  }
+
+  calcular() {
+    print(totalRecarga);
   }
 }
